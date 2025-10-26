@@ -78,8 +78,8 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
-      <nav className="sticky top-0 z-50 glass-effect border-b border-gray-200">
+    <div className="min-h-screen bg-white">
+      <nav className="sticky top-0 z-50 bg-white border-b-4 border-black shadow-md">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
@@ -107,7 +107,7 @@ const Index = () => {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url('https://cdn.poehali.dev/projects/bd88f9ee-9f8b-45fb-8870-f52f9e3bbd85/files/b72197a5-3468-4e95-a389-6e81024884c7.jpg')` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30" />
+          <div className="absolute inset-0 bg-black/70" />
         </div>
         
         <div className="relative container mx-auto px-6 h-full flex items-center">
@@ -119,10 +119,10 @@ const Index = () => {
               Эксклюзивные апартаменты премиум-класса от 85 млн ₽
             </p>
             
-            <div className="glass-effect rounded-2xl p-8 space-y-4 animate-scale-in">
+            <div className="bg-white border-4 border-black rounded-none p-8 space-y-4 animate-scale-in shadow-2xl">              <div className="text-xs font-bold text-black mb-4 uppercase tracking-widest">Поиск объектов</div>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <Select value={propertyType} onValueChange={setPropertyType}>
-                  <SelectTrigger className="bg-white/90">
+                  <SelectTrigger className="bg-white border-2 border-black rounded-none font-bold">
                     <SelectValue placeholder="Тип недвижимости" />
                   </SelectTrigger>
                   <SelectContent>
@@ -133,7 +133,7 @@ const Index = () => {
                 </Select>
                 
                 <Select value={priceRange} onValueChange={setPriceRange}>
-                  <SelectTrigger className="bg-white/90">
+                  <SelectTrigger className="bg-white border-2 border-black rounded-none font-bold">
                     <SelectValue placeholder="Цена" />
                   </SelectTrigger>
                   <SelectContent>
@@ -145,17 +145,17 @@ const Index = () => {
                 
                 <Input 
                   placeholder="Площадь, м²" 
-                  className="bg-white/90"
+                  className="bg-white border-2 border-black rounded-none font-bold"
                 />
                 
                 <Input 
                   placeholder="Район" 
-                  className="bg-white/90"
+                  className="bg-white border-2 border-black rounded-none font-bold"
                 />
               </div>
               
-              <Button className="w-full bg-primary hover:bg-primary/90 text-white h-12">
-                <Icon name="Search" size={18} className="mr-2" />
+              <Button className="w-full bg-black hover:bg-gray-800 text-white h-14 rounded-none font-black text-base uppercase tracking-wider">
+                <Icon name="Search" size={20} className="mr-2" />
                 Найти недвижимость
               </Button>
             </div>
@@ -163,7 +163,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="catalog" className="py-24 container mx-auto px-6">
+      <section id="catalog" className="py-32 container mx-auto px-6 border-t-4 border-black">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-6xl font-black text-foreground mb-8 uppercase tracking-tight">Избранные объекты</h2>
           <div className="w-32 h-1 bg-black mx-auto mb-6"></div>
@@ -173,7 +173,7 @@ const Index = () => {
           {properties.map((property, index) => (
             <Card 
               key={property.id} 
-              className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300 animate-fade-in"
+              className="group overflow-hidden border-4 border-black rounded-none shadow-none hover:shadow-2xl transition-all duration-300 animate-fade-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="relative h-72 overflow-hidden">
@@ -182,20 +182,20 @@ const Index = () => {
                   alt={property.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute top-4 right-4">
-                  <Badge className="bg-primary text-white">{property.type}</Badge>
+                <div className="absolute top-0 right-0">
+                  <Badge className="bg-black text-white rounded-none px-6 py-2 text-sm font-black uppercase">{property.type}</Badge>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
               
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-foreground">{property.title}</h3>
+              <CardContent className="p-8 bg-white">
+                <h3 className="text-2xl font-black mb-3 text-foreground uppercase tracking-tight">{property.title}</h3>
                 <div className="flex items-center text-muted-foreground mb-4">
                   <Icon name="MapPin" size={16} className="mr-2" />
                   <span className="text-sm">{property.location}</span>
                 </div>
                 
-                <div className="flex items-center justify-between mb-4 pb-4 border-b border-gray-200">
+                <div className="flex items-center justify-between mb-6 pb-6 border-b-2 border-black">
                   <div className="flex items-center space-x-4 text-sm text-muted-foreground">
                     <span className="flex items-center">
                       <Icon name="Home" size={16} className="mr-1" />
@@ -209,8 +209,8 @@ const Index = () => {
                 </div>
                 
                 <div className="flex items-center justify-between">
-                  <span className="text-2xl font-bold text-primary">{property.price}</span>
-                  <Button variant="outline" size="sm" className="group-hover:bg-primary group-hover:text-white transition-colors">
+                  <span className="text-3xl font-black text-black">{property.price}</span>
+                  <Button variant="outline" size="sm" className="border-2 border-black rounded-none font-black uppercase group-hover:bg-black group-hover:text-white transition-colors">
                     Подробнее
                   </Button>
                 </div>
@@ -220,32 +220,32 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="services" className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section id="services" className="py-32 bg-gray-50 border-t-4 border-black">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-5xl font-bold text-foreground mb-4">Наши услуги</h2>
-            <div className="w-20 h-1 bg-primary mx-auto"></div>
+            <h2 className="text-6xl font-black text-foreground mb-8 uppercase tracking-tight">Наши услуги</h2>
+            <div className="w-32 h-1 bg-black mx-auto"></div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
               <Card 
                 key={index} 
-                className="text-center p-8 border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in"
+                className="text-center p-10 border-4 border-black rounded-none shadow-none hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 animate-fade-in bg-white"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Icon name={service.icon as any} className="text-primary" size={32} />
+                <div className="w-20 h-20 bg-black rounded-none flex items-center justify-center mx-auto mb-6">
+                  <Icon name={service.icon as any} className="text-white" size={40} />
                 </div>
-                <h3 className="text-xl font-semibold mb-3 text-foreground">{service.title}</h3>
-                <p className="text-muted-foreground">{service.description}</p>
+                <h3 className="text-2xl font-black mb-4 text-foreground uppercase tracking-tight">{service.title}</h3>
+                <p className="text-muted-foreground font-semibold">{service.description}</p>
               </Card>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="agents" className="py-24 container mx-auto px-6">
+      <section id="agents" className="py-32 container mx-auto px-6 bg-white border-t-4 border-black">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-6xl font-black text-foreground mb-8 uppercase tracking-tight">Команда экспертов</h2>
           <div className="w-32 h-1 bg-black mx-auto mb-6"></div>
@@ -255,7 +255,7 @@ const Index = () => {
           {agents.map((agent, index) => (
             <Card 
               key={agent.id} 
-              className="overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in"
+              className="overflow-hidden border-4 border-black rounded-none shadow-none hover:shadow-2xl transition-all duration-300 animate-fade-in bg-white"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="relative h-80 overflow-hidden">
@@ -265,9 +265,9 @@ const Index = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <CardContent className="p-6">
-                <h3 className="text-2xl font-semibold mb-1 text-foreground">{agent.name}</h3>
-                <p className="text-primary mb-4">{agent.position}</p>
+              <CardContent className="p-8 bg-white">
+                <h3 className="text-2xl font-black mb-2 text-foreground uppercase tracking-tight">{agent.name}</h3>
+                <p className="text-black font-bold mb-6 uppercase text-sm tracking-wider">{agent.position}</p>
                 <div className="space-y-2 mb-4 text-sm text-muted-foreground">
                   <div className="flex items-center">
                     <Icon name="Phone" size={16} className="mr-2" />
@@ -278,7 +278,7 @@ const Index = () => {
                     {agent.deals} успешных сделок
                   </div>
                 </div>
-                <Button className="w-full bg-primary hover:bg-primary/90 text-white">
+                <Button className="w-full bg-black hover:bg-gray-800 text-white rounded-none font-black uppercase tracking-wider">
                   Связаться
                 </Button>
               </CardContent>
@@ -287,58 +287,58 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="mortgage" className="py-24 bg-gradient-to-b from-white to-gray-50">
+      <section id="mortgage" className="py-32 bg-gray-50 border-t-4 border-black">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
               <h2 className="text-6xl font-black text-foreground mb-6 uppercase tracking-tight">Ипотечные программы</h2>
               <div className="w-32 h-1 bg-black mb-8"></div>
-              <p className="text-lg text-muted-foreground mb-8">
-                Мы сотрудничаем с ведущими банками и поможем вам подобрать оптимальные условия ипотечного кредитования
+              <p className="text-xl text-foreground font-bold mb-12 leading-relaxed">
+                Сотрудничаем с ведущими банками России. Оптимальные условия кредитования для премиальной недвижимости.
               </p>
               <div className="space-y-4 mb-8">
                 <div className="flex items-start">
-                  <Icon name="CheckCircle2" className="text-primary mr-3 mt-1" size={20} />
+                  <Icon name="CheckCircle2" className="text-black mr-4 mt-1" size={24} />
                   <div>
-                    <h4 className="font-semibold mb-1">Ставка от 4.9%</h4>
-                    <p className="text-sm text-muted-foreground">Специальные условия для клиентов агентства</p>
+                    <h4 className="font-black text-lg mb-2 uppercase">Ставка от 4.9%</h4>
+                    <p className="text-base text-muted-foreground font-semibold">Специальные условия для клиентов агентства</p>
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <Icon name="CheckCircle2" className="text-primary mr-3 mt-1" size={20} />
+                  <Icon name="CheckCircle2" className="text-black mr-4 mt-1" size={24} />
                   <div>
-                    <h4 className="font-semibold mb-1">Первый взнос от 15%</h4>
-                    <p className="text-sm text-muted-foreground">Гибкие условия первоначального взноса</p>
+                    <h4 className="font-black text-lg mb-2 uppercase">Первый взнос от 15%</h4>
+                    <p className="text-base text-muted-foreground font-semibold">Гибкие условия первоначального взноса</p>
                   </div>
                 </div>
                 <div className="flex items-start">
-                  <Icon name="CheckCircle2" className="text-primary mr-3 mt-1" size={20} />
+                  <Icon name="CheckCircle2" className="text-black mr-4 mt-1" size={24} />
                   <div>
-                    <h4 className="font-semibold mb-1">Срок до 30 лет</h4>
-                    <p className="text-sm text-muted-foreground">Комфортный период кредитования</p>
+                    <h4 className="font-black text-lg mb-2 uppercase">Срок до 30 лет</h4>
+                    <p className="text-base text-muted-foreground font-semibold">Комфортный период кредитования</p>
                   </div>
                 </div>
               </div>
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white">
+              <Button size="lg" className="bg-black hover:bg-gray-800 text-white rounded-none font-black uppercase tracking-wider px-12 py-6 text-lg">
                 Рассчитать ипотеку
               </Button>
             </div>
             <div className="relative animate-scale-in">
-              <div className="glass-effect rounded-3xl p-8 shadow-2xl">
-                <h3 className="text-2xl font-bold mb-6">Быстрый расчет</h3>
+              <div className="bg-white border-4 border-black rounded-none p-10 shadow-2xl">
+                <h3 className="text-3xl font-black mb-8 uppercase tracking-tight">Быстрый расчет</h3>
                 <div className="space-y-4">
                   <div>
-                    <label className="text-sm font-medium mb-2 block">Стоимость недвижимости</label>
-                    <Input placeholder="50 000 000 ₽" />
+                    <label className="text-xs font-black mb-3 block uppercase tracking-wider">Стоимость недвижимости</label>
+                    <Input placeholder="50 000 000 ₽" className="border-2 border-black rounded-none h-12 font-bold" />
                   </div>
                   <div>
-                    <label className="text-sm font-medium mb-2 block">Первоначальный взнос</label>
-                    <Input placeholder="15 000 000 ₽" />
+                    <label className="text-xs font-black mb-3 block uppercase tracking-wider">Первоначальный взнос</label>
+                    <Input placeholder="15 000 000 ₽" className="border-2 border-black rounded-none h-12 font-bold" />
                   </div>
                   <div>
-                    <label className="text-sm font-medium mb-2 block">Срок кредита</label>
+                    <label className="text-xs font-black mb-3 block uppercase tracking-wider">Срок кредита</label>
                     <Select>
-                      <SelectTrigger>
+                      <SelectTrigger className="border-2 border-black rounded-none h-12 font-bold">
                         <SelectValue placeholder="Выберите срок" />
                       </SelectTrigger>
                       <SelectContent>
@@ -349,7 +349,7 @@ const Index = () => {
                       </SelectContent>
                     </Select>
                   </div>
-                  <Button className="w-full bg-primary hover:bg-primary/90 text-white">
+                  <Button className="w-full bg-black hover:bg-gray-800 text-white rounded-none font-black uppercase tracking-wider h-14 text-base">
                     Получить расчет
                   </Button>
                 </div>
@@ -359,55 +359,55 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="newbuildings" className="py-24 container mx-auto px-6">
+      <section id="newbuildings" className="py-32 container mx-auto px-6 bg-white border-t-4 border-black">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-6xl font-black text-foreground mb-8 uppercase tracking-tight">Новостройки</h2>
           <div className="w-32 h-1 bg-black mx-auto mb-6"></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <Card className="overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300">
+          <Card className="overflow-hidden border-4 border-black rounded-none shadow-none hover:shadow-2xl transition-all duration-300 bg-white">
             <div className="relative h-96 overflow-hidden">
               <img 
                 src="https://cdn.poehali.dev/projects/bd88f9ee-9f8b-45fb-8870-f52f9e3bbd85/files/b72197a5-3468-4e95-a389-6e81024884c7.jpg"
                 alt="ЖК Панорама"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute top-4 right-4">
-                <Badge className="bg-primary text-white">Аккредитация банков</Badge>
+              <div className="absolute top-0 right-0">
+                <Badge className="bg-black text-white rounded-none px-6 py-3 text-sm font-black uppercase">Аккредитация банков</Badge>
               </div>
             </div>
-            <CardContent className="p-8">
-              <h3 className="text-3xl font-bold mb-3 text-foreground">ЖК "Панорама"</h3>
+            <CardContent className="p-10 bg-white">
+              <h3 className="text-4xl font-black mb-4 text-foreground uppercase tracking-tight">ЖК "Панорама"</h3>
               <div className="flex items-center text-muted-foreground mb-6">
                 <Icon name="MapPin" size={18} className="mr-2" />
                 <span>Пресненская набережная</span>
               </div>
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div>
-                  <p className="text-sm text-muted-foreground mb-1">Срок сдачи</p>
-                  <p className="font-semibold">III кв. 2025</p>
+                  <p className="text-xs text-muted-foreground mb-2 uppercase tracking-wider font-bold">Срок сдачи</p>
+                  <p className="font-black text-lg">III кв. 2025</p>
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground mb-1">Цена от</p>
-                  <p className="font-semibold text-primary">85 млн ₽</p>
+                  <p className="text-xs text-muted-foreground mb-2 uppercase tracking-wider font-bold">Цена от</p>
+                  <p className="font-black text-2xl text-black">85 млн ₽</p>
                 </div>
               </div>
-              <Button className="w-full bg-primary hover:bg-primary/90 text-white">
+              <Button className="w-full bg-black hover:bg-gray-800 text-white rounded-none font-black uppercase tracking-wider h-14">
                 Узнать подробнее
               </Button>
             </CardContent>
           </Card>
 
-          <Card className="overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300">
+          <Card className="overflow-hidden border-4 border-black rounded-none shadow-none hover:shadow-2xl transition-all duration-300 bg-white">
             <div className="relative h-96 overflow-hidden">
               <img 
                 src="https://cdn.poehali.dev/projects/bd88f9ee-9f8b-45fb-8870-f52f9e3bbd85/files/b72197a5-3468-4e95-a389-6e81024884c7.jpg"
                 alt="ЖК Резиденция"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute top-4 right-4">
-                <Badge className="bg-primary text-white">Спецпредложение</Badge>
+              <div className="absolute top-0 right-0">
+                <Badge className="bg-black text-white rounded-none px-6 py-3 text-sm font-black uppercase">Спецпредложение</Badge>
               </div>
             </div>
             <CardContent className="p-8">
@@ -426,7 +426,7 @@ const Index = () => {
                   <p className="font-semibold text-primary">120 млн ₽</p>
                 </div>
               </div>
-              <Button className="w-full bg-primary hover:bg-primary/90 text-white">
+              <Button className="w-full bg-black hover:bg-gray-800 text-white rounded-none font-black uppercase tracking-wider h-14">
                 Узнать подробнее
               </Button>
             </CardContent>
@@ -434,53 +434,49 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="about" className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <section id="about" className="py-32 bg-gray-50 border-t-4 border-black">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
             <h2 className="text-6xl font-black text-foreground mb-6 uppercase tracking-tight">О компании</h2>
             <div className="w-32 h-1 bg-black mx-auto mb-8"></div>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              ЭЛИТ РЕЗИДЕНС — ведущее агентство премиальной недвижимости с 15-летним опытом работы на московском рынке. 
-              Мы специализируемся на эксклюзивных объектах в центральных районах столицы и предлагаем полный спектр услуг 
-              по покупке, продаже и аренде элитной недвижимости.
+            <p className="text-xl text-foreground font-bold mb-12 leading-relaxed">
+              15 ЛЕТ НА РЫНКЕ ПРЕМИАЛЬНОЙ НЕДВИЖИМОСТИ МОСКВЫ. ЭКСКЛЮЗИВНЫЕ ОБЪЕКТЫ В ЦЕНТРАЛЬНЫХ РАЙОНАХ. ПОЛНЫЙ СПЕКТР УСЛУГ.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-              <div className="p-6">
-                <div className="text-5xl font-bold text-primary mb-2">15+</div>
-                <p className="text-muted-foreground">лет на рынке</p>
+              <div className="p-8 border-4 border-black rounded-none bg-white">
+                <div className="text-7xl font-black text-black mb-4">15+</div>
+                <p className="text-foreground font-black uppercase tracking-wider">лет на рынке</p>
               </div>
-              <div className="p-6">
-                <div className="text-5xl font-bold text-primary mb-2">2000+</div>
-                <p className="text-muted-foreground">успешных сделок</p>
+              <div className="p-8 border-4 border-black rounded-none bg-white">
+                <div className="text-7xl font-black text-black mb-4">2000+</div>
+                <p className="text-foreground font-black uppercase tracking-wider">успешных сделок</p>
               </div>
-              <div className="p-6">
-                <div className="text-5xl font-bold text-primary mb-2">500+</div>
-                <p className="text-muted-foreground">объектов в портфеле</p>
+              <div className="p-8 border-4 border-black rounded-none bg-white">
+                <div className="text-7xl font-black text-black mb-4">500+</div>
+                <p className="text-foreground font-black uppercase tracking-wider">объектов в портфеле</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="contacts" className="py-24 container mx-auto px-6">
+      <section id="contacts" className="py-32 container mx-auto px-6 bg-white border-t-4 border-black">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-6xl font-black text-foreground mb-4 uppercase tracking-tight">Контакты</h2>
             <div className="w-32 h-1 bg-black mx-auto mb-6"></div>
-            <p className="text-lg text-muted-foreground">
-              Готовы ответить на все ваши вопросы
-            </p>
+
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
             <div className="space-y-8 animate-fade-in">
               <div className="flex items-start">
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                  <Icon name="MapPin" className="text-primary" size={24} />
+                <div className="w-16 h-16 bg-black rounded-none flex items-center justify-center mr-6 flex-shrink-0">
+                  <Icon name="MapPin" className="text-white" size={28} />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">Офис</h3>
-                  <p className="text-muted-foreground">Москва, Пресненская наб., 12<br />Башня "Федерация", 45 этаж</p>
+                  <h3 className="font-black text-xl mb-3 uppercase tracking-wide">Офис</h3>
+                  <p className="text-foreground font-bold">Москва, Пресненская наб., 12<br />Башня "Федерация", 45 этаж</p>
                 </div>
               </div>
               
@@ -505,14 +501,14 @@ const Index = () => {
               </div>
             </div>
 
-            <Card className="p-8 border-0 shadow-xl animate-scale-in">
-              <h3 className="text-2xl font-bold mb-6">Оставьте заявку</h3>
-              <div className="space-y-4">
-                <Input placeholder="Ваше имя" />
-                <Input placeholder="Телефон" type="tel" />
-                <Input placeholder="Email" type="email" />
+            <Card className="p-10 border-4 border-black rounded-none shadow-2xl animate-scale-in bg-white">
+              <h3 className="text-3xl font-black mb-8 uppercase tracking-tight">Оставьте заявку</h3>
+              <div className="space-y-5">
+                <Input placeholder="Ваше имя" className="border-2 border-black rounded-none h-12 font-bold" />
+                <Input placeholder="Телефон" type="tel" className="border-2 border-black rounded-none h-12 font-bold" />
+                <Input placeholder="Email" type="email" className="border-2 border-black rounded-none h-12 font-bold" />
                 <Select>
-                  <SelectTrigger>
+                  <SelectTrigger className="border-2 border-black rounded-none h-12 font-bold">
                     <SelectValue placeholder="Интересующая услуга" />
                   </SelectTrigger>
                   <SelectContent>
@@ -522,7 +518,7 @@ const Index = () => {
                     <SelectItem value="mortgage">Ипотека</SelectItem>
                   </SelectContent>
                 </Select>
-                <Button className="w-full bg-primary hover:bg-primary/90 text-white h-12">
+                <Button className="w-full bg-black hover:bg-gray-800 text-white rounded-none font-black uppercase tracking-wider h-14 text-base">
                   Отправить заявку
                 </Button>
                 <p className="text-xs text-muted-foreground text-center">
