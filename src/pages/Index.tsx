@@ -84,15 +84,15 @@ const Index = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <Icon name="Building2" className="text-primary" size={32} />
-              <span className="text-2xl font-bold text-foreground">ЭЛИТ РЕЗИДЕНС</span>
+              <span className="text-2xl font-black text-foreground uppercase tracking-wider">ЭЛИТ РЕЗИДЕНС</span>
             </div>
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#catalog" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Каталог</a>
-              <a href="#newbuildings" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Новостройки</a>
-              <a href="#mortgage" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Ипотека</a>
-              <a href="#services" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Услуги</a>
-              <a href="#about" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">О компании</a>
-              <a href="#contacts" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">Контакты</a>
+              <a href="#catalog" className="text-sm font-bold text-muted-foreground hover:text-primary transition-colors uppercase tracking-wide">Каталог</a>
+              <a href="#newbuildings" className="text-sm font-bold text-muted-foreground hover:text-primary transition-colors uppercase tracking-wide">Новостройки</a>
+              <a href="#mortgage" className="text-sm font-bold text-muted-foreground hover:text-primary transition-colors uppercase tracking-wide">Ипотека</a>
+              <a href="#services" className="text-sm font-bold text-muted-foreground hover:text-primary transition-colors uppercase tracking-wide">Услуги</a>
+              <a href="#about" className="text-sm font-bold text-muted-foreground hover:text-primary transition-colors uppercase tracking-wide">О компании</a>
+              <a href="#contacts" className="text-sm font-bold text-muted-foreground hover:text-primary transition-colors uppercase tracking-wide">Контакты</a>
             </div>
             <Button className="bg-primary hover:bg-primary/90 text-white">
               <Icon name="Phone" size={16} className="mr-2" />
@@ -112,11 +112,11 @@ const Index = () => {
         
         <div className="relative container mx-auto px-6 h-full flex items-center">
           <div className="max-w-3xl animate-fade-in">
-            <h1 className="text-6xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-7xl font-black text-white mb-6 leading-tight tracking-tight uppercase">
               Элитная недвижимость<br />в сердце Москвы
             </h1>
-            <p className="text-xl text-white/90 mb-12 font-light">
-              Эксклюзивные апартаменты и пентхаусы с панорамными видами
+            <p className="text-2xl text-white/90 mb-12 font-medium tracking-wide">
+              Эксклюзивные апартаменты премиум-класса от 85 млн ₽
             </p>
             
             <div className="glass-effect rounded-2xl p-8 space-y-4 animate-scale-in">
@@ -165,11 +165,8 @@ const Index = () => {
 
       <section id="catalog" className="py-24 container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-5xl font-bold text-foreground mb-4">Избранные объекты</h2>
-          <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Эксклюзивная коллекция премиальной недвижимости с высочайшим уровнем комфорта
-          </p>
+          <h2 className="text-6xl font-black text-foreground mb-8 uppercase tracking-tight">Избранные объекты</h2>
+          <div className="w-32 h-1 bg-black mx-auto mb-6"></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -250,11 +247,8 @@ const Index = () => {
 
       <section id="agents" className="py-24 container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-5xl font-bold text-foreground mb-4">Наши эксперты</h2>
-          <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Команда профессионалов с многолетним опытом на рынке элитной недвижимости
-          </p>
+          <h2 className="text-6xl font-black text-foreground mb-8 uppercase tracking-tight">Команда экспертов</h2>
+          <div className="w-32 h-1 bg-black mx-auto mb-6"></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -297,8 +291,8 @@ const Index = () => {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
-              <h2 className="text-5xl font-bold text-foreground mb-6">Ипотечные программы</h2>
-              <div className="w-20 h-1 bg-primary mb-8"></div>
+              <h2 className="text-6xl font-black text-foreground mb-6 uppercase tracking-tight">Ипотечные программы</h2>
+              <div className="w-32 h-1 bg-black mb-8"></div>
               <p className="text-lg text-muted-foreground mb-8">
                 Мы сотрудничаем с ведущими банками и поможем вам подобрать оптимальные условия ипотечного кредитования
               </p>
@@ -367,11 +361,8 @@ const Index = () => {
 
       <section id="newbuildings" className="py-24 container mx-auto px-6">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-5xl font-bold text-foreground mb-4">Новостройки</h2>
-          <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Эксклюзивные жилые комплексы от ведущих девелоперов
-          </p>
+          <h2 className="text-6xl font-black text-foreground mb-8 uppercase tracking-tight">Новостройки</h2>
+          <div className="w-32 h-1 bg-black mx-auto mb-6"></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -446,8 +437,8 @@ const Index = () => {
       <section id="about" className="py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
-            <h2 className="text-5xl font-bold text-foreground mb-6">О компании</h2>
-            <div className="w-20 h-1 bg-primary mx-auto mb-8"></div>
+            <h2 className="text-6xl font-black text-foreground mb-6 uppercase tracking-tight">О компании</h2>
+            <div className="w-32 h-1 bg-black mx-auto mb-8"></div>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
               ЭЛИТ РЕЗИДЕНС — ведущее агентство премиальной недвижимости с 15-летним опытом работы на московском рынке. 
               Мы специализируемся на эксклюзивных объектах в центральных районах столицы и предлагаем полный спектр услуг 
@@ -474,8 +465,8 @@ const Index = () => {
       <section id="contacts" className="py-24 container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-5xl font-bold text-foreground mb-4">Свяжитесь с нами</h2>
-            <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
+            <h2 className="text-6xl font-black text-foreground mb-4 uppercase tracking-tight">Контакты</h2>
+            <div className="w-32 h-1 bg-black mx-auto mb-6"></div>
             <p className="text-lg text-muted-foreground">
               Готовы ответить на все ваши вопросы
             </p>
